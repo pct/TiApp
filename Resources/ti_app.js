@@ -8,21 +8,14 @@
       var mainWindow;
       $.App.tabGroup = new TabGroup();
       mainWindow = $.Views.Main.createMainWindow({
-        title: 'Main',
-        id: 'mainWindow',
-        orientationModes: $.Helpers.Application.createOrientiationModes
+        title: 'Main'
       });
       $.App.mainWindow = new Tab({
-        id: 'mainTab',
         className: 'tabElement',
         title: 'Main',
         window: mainWindow
       });
       $.App.tabGroup.addTab($.App.mainWindow);
-      $.App.tabGroup.addEventListener('focus', function(e) {
-        $.App.currentTab = e.tab;
-        return info($.App.currentTab);
-      });
       return $.App.tabGroup.open();
     }
   };
@@ -39,13 +32,14 @@
     var label, view, window;
     window = new Window(options).setBackgroundColor('#1798cc');
     label = new Label({
-      id: 'main-label',
       text: 'Hello, world!',
       color: '#fff',
-      fontSize: 40,
+      font: {
+        fontSize: 40
+      },
       textAlign: 'center'
     });
-    view = new View();
+    view = new View;
     view.add(label);
     window.add(view);
     return window;
