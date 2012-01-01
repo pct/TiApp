@@ -1,18 +1,14 @@
 $.App =
   init: ->
-    $.App.initTabGroup()
+    $.App.initMainWindow()
 
-  initTabGroup: ->
-    $.App.tabGroup = new TabGroup()
+  initMainWindow: ->
+    main = new Window
 
-    mainWindow = $.Views.Main.createMainWindow
-      title: 'Main'
+    nav = Ti.UI.iPhone.createNavigationGroup
+        window: $.Views.Main.createMainWindow
+            title: 'Main'
 
-    $.App.mainWindow = new Tab
-      className: 'tabElement'
-      title: 'Main'
-      window: mainWindow
-    
-    $.App.tabGroup.addTab $.App.mainWindow
-    
-    $.App.tabGroup.open()
+    main.add nav
+
+    main.open()

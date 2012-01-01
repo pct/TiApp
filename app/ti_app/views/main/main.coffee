@@ -5,7 +5,7 @@ $.Views.Main.createMainWindow = (options) ->
       text: 'Hello, world!'
       color: '#fff'
       font:
-        fontSize: 40
+        fontSize: 50
       textAlign: 'center'
 
   view = new View

@@ -2,21 +2,18 @@
 
   $.App = {
     init: function() {
-      return $.App.initTabGroup();
+      return $.App.initMainWindow();
     },
-    initTabGroup: function() {
-      var mainWindow;
-      $.App.tabGroup = new TabGroup();
-      mainWindow = $.Views.Main.createMainWindow({
-        title: 'Main'
+    initMainWindow: function() {
+      var main, nav;
+      main = new Window;
+      nav = Ti.UI.iPhone.createNavigationGroup({
+        window: $.Views.Main.createMainWindow({
+          title: 'Main'
+        })
       });
-      $.App.mainWindow = new Tab({
-        className: 'tabElement',
-        title: 'Main',
-        window: mainWindow
-      });
-      $.App.tabGroup.addTab($.App.mainWindow);
-      return $.App.tabGroup.open();
+      main.add(nav);
+      return main.open();
     }
   };
 
@@ -35,7 +32,7 @@
       text: 'Hello, world!',
       color: '#fff',
       font: {
-        fontSize: 40
+        fontSize: 50
       },
       textAlign: 'center'
     });
