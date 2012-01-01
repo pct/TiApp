@@ -49,7 +49,7 @@ namespace :compile do
 
   desc "Compile SASS to JSS"
   task :styles do
-    compile_sass
+    #compile_sass
   end
 
   desc "Compile CoffeeScript into JS"
@@ -66,7 +66,7 @@ namespace :build do
 end
 
 def compile
-  compile_coffee && compile_sass
+  compile_coffee #&& compile_sass
 end
 
 def copy_xml
@@ -104,7 +104,7 @@ end
 
 def compile_sass
   puts "Compiling stylesheets".blue
-  compilation = system "sass --compass -C -t expand app/ti_app/stylesheets/app.sass > Resources/app.jss"
+  compilation = system "sass -C -t expand app/ti_app/stylesheets/app.sass > Resources/app.jss"
 end
 
 def compile_coffee

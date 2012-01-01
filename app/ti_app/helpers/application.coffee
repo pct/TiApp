@@ -1,4 +1,4 @@
-Tiapp.Helpers.Application =
+$.Helpers.Application =
   
   createOrientiationModes: ->
     modes = [
