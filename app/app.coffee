@@ -1,8 +1,8 @@
-$ =
-  Models:   {}
-  Helpers:  {}
-  Views:
-    Main: {}
+TiApp =
+    Models:   {}
+    Helpers:  {}
+    Views:
+        Main: {}
 
 # Include your libraries like:
 # Ti.include('vendor/date.js')
@@ -12,4 +12,4 @@ $ =
 Ti.include('redux.js')
 inc('ti_app.js')
 
-$.App.init()
+TiApp.App.init()

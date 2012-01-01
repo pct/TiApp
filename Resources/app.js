@@ -1,6 +1,6 @@
-var $;
+var TiApp;
 
-$ = {
+TiApp = {
   Models: {},
   Helpers: {},
   Views: {
@@ -12,4 +12,4 @@ Ti.include('redux.js');
 
 inc('ti_app.js');
 
-$.App.init();
+TiApp.App.init();
