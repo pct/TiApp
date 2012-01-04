@@ -1,6 +1,7 @@
 TiApp =
-    Models:   {}
-    Helpers:  {}
+    App: {}
+    Models: {}
+    Helpers: {}
     Views:
         Main: {}
 

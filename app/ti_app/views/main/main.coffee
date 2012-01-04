@@ -1,3 +1,9 @@
+# iOS trick
+Ti.UI.createWindow
+Ti.UI.createLabel
+Ti.UI.createButton
+Ti.UI.createView
+
 TiApp.Views.Main.createMainWindow = (options) ->
     window  = new Window(options).setBackgroundColor '#1798cc'
 

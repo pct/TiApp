@@ -1,3 +1,6 @@
+# iOS trick
+Ti.UI.createWindow
+
 TiApp.App =
     init: ->
         TiApp.App.initMainWindow()

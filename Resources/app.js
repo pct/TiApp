@@ -1,6 +1,7 @@
 var TiApp;
 
 TiApp = {
+  App: {},
   Models: {},
   Helpers: {},
   Views: {

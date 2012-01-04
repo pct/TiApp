@@ -1,5 +1,7 @@
 (function() {
 
+  Ti.UI.createWindow;
+
   TiApp.App = {
     init: function() {
       return TiApp.App.initMainWindow();
@@ -24,6 +26,14 @@
       return modes;
     }
   };
+
+  Ti.UI.createWindow;
+
+  Ti.UI.createLabel;
+
+  Ti.UI.createButton;
+
+  Ti.UI.createView;
 
   TiApp.Views.Main.createMainWindow = function(options) {
     var button, label, label4, view, window,
