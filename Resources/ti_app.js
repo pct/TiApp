@@ -8,7 +8,7 @@
     },
     initMainWindow: function() {
       var main, nav;
-      main = new Window;
+      main = $.Window();
       nav = Ti.UI.iPhone.createNavigationGroup({
         window: TiApp.Views.Main.createMainWindow({
           title: 'Main'
@@ -38,8 +38,8 @@
   TiApp.Views.Main.createMainWindow = function(options) {
     var button, label, label4, view, window,
       _this = this;
-    window = new Window(options).setBackgroundColor('#1798cc');
-    label = new Label({
+    window = $.Window(options).setBackgroundColor('#1798cc');
+    label = $.Label({
       text: 'Hello, world!',
       top: 100,
       height: 150,
@@ -49,14 +49,14 @@
       },
       textAlign: 'center'
     });
-    button = new Button({
+    button = $.Button({
       title: 'click me!',
       top: 250,
       width: 100,
       height: 50,
       color: '#000'
     });
-    label4 = new Label({
+    label4 = $.Label({
       text: 'Hello, 4Point Design Team!',
       top: 50,
       height: 100,
@@ -66,7 +66,7 @@
       },
       textAlign: 'center'
     });
-    view = new View;
+    view = $.View();
     $(button).click(function() {
       return label4.color = '#fff';
     });

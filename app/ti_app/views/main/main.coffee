@@ -5,9 +5,9 @@ Ti.UI.createButton
 Ti.UI.createView
 
 TiApp.Views.Main.createMainWindow = (options) ->
-    window  = new Window(options).setBackgroundColor '#1798cc'
+    window  = $.Window(options).setBackgroundColor '#1798cc'
 
-    label = new Label
+    label = $.Label
         text: 'Hello, world!'
         top: 100
         height: 150
@@ -16,14 +16,14 @@ TiApp.Views.Main.createMainWindow = (options) ->
             fontSize: 50
         textAlign: 'center'
 
-    button = new Button
+    button = $.Button
         title: 'click me!'
         top: 250
         width: 100
         height: 50
         color: '#000'
 
-    label4 = new Label
+    label4 = $.Label
         text: 'Hello, 4Point Design Team!'
         top: 50
         height: 100
@@ -32,7 +32,7 @@ TiApp.Views.Main.createMainWindow = (options) ->
             fontSize: 20
         textAlign: 'center'
 
-    view = new View
+    view = $.View()
 
     $(button).click =>
         label4.color = '#fff'

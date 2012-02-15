@@ -10,7 +10,7 @@ TiApp =
 # Ti.include('vendor/underscore.js')
 # Ti.include('vendor/backbone.js')
 
-Ti.include('redux.js')
+Ti.include('tiquery.js')
 inc('ti_app.js')
 
 TiApp.App.init()

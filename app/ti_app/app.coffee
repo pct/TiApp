@@ -6,7 +6,7 @@ TiApp.App =
         TiApp.App.initMainWindow()
 
     initMainWindow: ->
-        main = new Window
+        main = $.Window()
 
         nav = Ti.UI.iPhone.createNavigationGroup
             window: TiApp.Views.Main.createMainWindow

@@ -9,7 +9,7 @@ TiApp = {
   }
 };
 
-Ti.include('redux.js');
+Ti.include('tiquery.js');
 
 inc('ti_app.js');
 
