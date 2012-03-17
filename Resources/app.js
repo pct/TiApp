@@ -11,6 +11,6 @@ TiApp = {
 
 Ti.include('tiquery.js');
 
-inc('ti_app.js');
+Ti.include('ti_app.js');
 
 TiApp.App.init();

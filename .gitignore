@@ -32,3 +32,5 @@
 build
 tmp
 project-assets
+.project
+*.json
