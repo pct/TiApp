@@ -209,8 +209,7 @@
     };
 
     Hello.prototype.initialize = function() {
-      var button, label1, label2;
-      label1 = $.Label({
+      this.add('label1', $.Label({
         text: 'Hello, world!',
         top: 100,
         height: 150,
@@ -219,15 +218,8 @@
           fontSize: 50
         },
         textAlign: 'center'
-      });
-      button = $.Button({
-        title: 'click me!',
-        top: 250,
-        width: 100,
-        height: 50,
-        color: '#000'
-      });
-      label2 = $.Label({
+      }));
+      this.add('label2', $.Label({
         text: 'Hello, 4Point Design Team!',
         top: 50,
         height: 100,
@@ -236,10 +228,14 @@
           fontSize: 20
         },
         textAlign: 'center'
-      });
-      this.add('button', button);
-      this.add('label1', label1);
-      return this.add('label2', label2);
+      }));
+      return this.add('button', $.Button({
+        title: 'click me!',
+        top: 250,
+        width: 100,
+        height: 50,
+        color: '#000'
+      }));
     };
 
     Hello.prototype.changeColor = function() {

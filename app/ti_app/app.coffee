@@ -97,7 +97,8 @@ class MyApp.View.Hello extends Timy.View.Abstract
     'click button': 'changeColor'
 
   initialize: ->
-    label1 = $.Label
+
+    @add 'label1', $.Label
       text: 'Hello, world!'
       top: 100
       height: 150
@@ -106,14 +107,7 @@ class MyApp.View.Hello extends Timy.View.Abstract
         fontSize: 50
       textAlign: 'center'
 
-    button = $.Button
-      title: 'click me!'
-      top: 250
-      width: 100
-      height: 50
-      color: '#000'
-
-    label2 = $.Label
+    @add 'label2', $.Label
       text: 'Hello, 4Point Design Team!'
       top: 50
       height: 100
@@ -122,9 +116,12 @@ class MyApp.View.Hello extends Timy.View.Abstract
         fontSize: 20
       textAlign: 'center'
 
-    @add 'button', button
-    @add 'label1', label1
-    @add 'label2', label2
+    @add 'button', $.Button
+      title: 'click me!'
+      top: 250
+      width: 100
+      height: 50
+      color: '#000'
 
   changeColor: ->
     @get('label2').color = '#fff'
