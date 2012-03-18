@@ -1,16 +1,9 @@
-var TiApp;
+Ti.include('vendor/underscore.js');
 
-TiApp = {
-  App: {},
-  Models: {},
-  Helpers: {},
-  Views: {
-    Main: {}
-  }
-};
+Ti.include('vendor/backbone.js');
 
-Ti.include('tiquery.js');
+Ti.include('vendor/redux.js');
+
+Ti.include('vendor/tiquery.js');
 
 Ti.include('ti_app.js');
-
-TiApp.App.init();
