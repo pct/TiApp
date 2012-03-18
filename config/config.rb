@@ -20,7 +20,7 @@ module Config
   #       the one within Ti itself. This will allow the user to decide if they're building on a different version or have
   #       Titanium in a different location.
   TI_SDK_VERSION      = "1.8.2"
-  TI_DIR              = "~/Library/Application\\ Support/Titanium"
+  TI_DIR              = "/Library/Application\\ Support/Titanium"
 
   TI_ASSETS_DIR       = "#{TI_DIR}/mobilesdk/osx/#{TI_SDK_VERSION}"
   TI_IPHONE_DIR       = "#{TI_ASSETS_DIR}/iphone"

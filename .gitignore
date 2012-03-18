@@ -29,10 +29,11 @@
 #
 # For the project:
 #
-build
+build/iphone
 tmp
 project-assets
 .project
 *.json
 # Ignore bundler config
 /.bundle
+Gemfile.lock
