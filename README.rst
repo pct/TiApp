@@ -21,6 +21,10 @@ Ruby and rubygems::
 
     $ gem install nokogiri colored betabuilder
 
+or use Bundler::
+
+    $ bundle
+
 Notice
 ------
 

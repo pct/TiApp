@@ -1,16 +1,6 @@
-TiApp =
-    App: {}
-    Models: {}
-    Helpers: {}
-    Views:
-        Main: {}
-
-# Include your libraries like:
-# Ti.include('vendor/date.js')
-# Ti.include('vendor/underscore.js')
-# Ti.include('vendor/backbone.js')
-
-Ti.include('tiquery.js')
-inc('ti_app.js')
-
-TiApp.App.init()
+Ti.include 'vendor/underscore.js'
+Ti.include 'vendor/backbone.js'
+Ti.include 'vendor/redux.js';
+Ti.include 'vendor/tiquery.js'
+Ti.include 'vendor/tivy.js'
+Ti.include 'ti_app.js'

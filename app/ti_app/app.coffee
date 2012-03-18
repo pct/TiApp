@@ -1,17 +1,56 @@
-# iOS trick
-Ti.UI.createWindow
+root = @
 
-TiApp.App =
-    init: ->
-        TiApp.App.initMainWindow()
+MyApp = root.MyApp =
+  app: null,
+  App: {}
+  Model: {}
+  View: {}
 
-    initMainWindow: ->
-        main = $.Window()
+class MyApp.View.Hello extends Tivy.View.Abstract
 
-        nav = Ti.UI.iPhone.createNavigationGroup
-            window: TiApp.Views.Main.createMainWindow
-                title: 'Main'
+  events:
+    'click button': 'changeColor'
 
-        main.add nav
+  initialize: ->
 
-        main.open()
+    @add 'label1', $.Label
+      text: 'Hello, world!'
+      top: 100
+      height: 150
+      color: '#fff'
+      font:
+        fontSize: 50
+      textAlign: 'center'
+
+    @add 'label2', $.Label
+      text: 'Hello, 4Point Design Team!'
+      top: 50
+      height: 100
+      color: '#1798cc'
+      font:
+        fontSize: 20
+      textAlign: 'center'
+
+    @add 'button', $.Button
+      title: 'click me!'
+      top: 250
+      width: 100
+      height: 50
+      color: '#000'
+
+  changeColor: ->
+    @get('label2').color = '#fff'
+
+class MyApp.App
+  run: ->
+    mainView = new Tivy.View.MainWindow()
+    naviView = mainView.wrapper new Tivy.View.NaviGroup()
+    contView = naviView.wrapper new Tivy.View.ContainerWindow
+      title: 'Test'
+      backgroundColor: '#1798cc'
+    contView.wrapper new MyApp.View.Hello()
+
+    mainView.render()
+
+MyApp.app = new MyApp.App()
+MyApp.app.run()
