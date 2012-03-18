@@ -4,6 +4,9 @@ MyApp =
   Model: {}
   View: {}
 
+Timy =
+  View: {}
+
 Backbone.setDomLibrary TiQuery
 
 getValue = (object, prop) ->
@@ -12,7 +15,7 @@ getValue = (object, prop) ->
 
 eventSplitter = /^(\S+)\s*(.*)$/
 
-class MyApp.View.Abstract extends Backbone.View
+class Timy.View.Abstract extends Backbone.View
 
   view: null
 
@@ -64,28 +67,28 @@ class MyApp.View.Abstract extends Backbone.View
       for event, method of events
         $(el).unbind event, method
 
-class MyApp.View.Window extends MyApp.View.Abstract
+class Timy.View.Window extends Timy.View.Abstract
   render: ->
     $.Window(@options)
 
-class MyApp.View.NaviGroup extends MyApp.View.Abstract
+class Timy.View.NaviGroup extends Timy.View.Abstract
   render: () ->
     Ti.UI.iPhone.createNavigationGroup
       window: @view.render()
 
-class MyApp.View.MainWindow extends MyApp.View.Window
+class MyApp.View.MainWindow extends Timy.View.Window
   render: ->
     window = super()
     window.add @view.render()
     window.open()
 
-class MyApp.View.ContainerWindow extends MyApp.View.Window
+class Timy.View.ContainerWindow extends Timy.View.Window
   render: ->
     window = super()
     window.add @view.render()
     window
 
-class MyApp.View.Hello extends MyApp.View.Abstract
+class MyApp.View.Hello extends Timy.View.Abstract
 
   events:
     'click button': 'changeColor'
@@ -127,8 +130,8 @@ class MyApp.View.Hello extends MyApp.View.Abstract
 class MyApp.App
   run: ->
     mainView = new MyApp.View.MainWindow()
-    naviView = mainView.wrapper new MyApp.View.NaviGroup()
-    contView = naviView.wrapper new MyApp.View.ContainerWindow
+    naviView = mainView.wrapper new Timy.View.NaviGroup()
+    contView = naviView.wrapper new Timy.View.ContainerWindow
       title: 'Test'
       backgroundColor: '#1798cc'
     contView.wrapper new MyApp.View.Hello()

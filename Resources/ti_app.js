@@ -1,5 +1,5 @@
 (function() {
-  var MyApp, eventSplitter, getValue,
+  var MyApp, Timy, eventSplitter, getValue,
     __hasProp = Object.prototype.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; };
 
@@ -7,6 +7,10 @@
     app: null,
     App: {},
     Model: {},
+    View: {}
+  };
+
+  Timy = {
     View: {}
   };
 
@@ -23,7 +27,7 @@
 
   eventSplitter = /^(\S+)\s*(.*)$/;
 
-  MyApp.View.Abstract = (function(_super) {
+  Timy.View.Abstract = (function(_super) {
 
     __extends(Abstract, _super);
 
@@ -116,7 +120,7 @@
 
   })(Backbone.View);
 
-  MyApp.View.Window = (function(_super) {
+  Timy.View.Window = (function(_super) {
 
     __extends(Window, _super);
 
@@ -130,9 +134,9 @@
 
     return Window;
 
-  })(MyApp.View.Abstract);
+  })(Timy.View.Abstract);
 
-  MyApp.View.NaviGroup = (function(_super) {
+  Timy.View.NaviGroup = (function(_super) {
 
     __extends(NaviGroup, _super);
 
@@ -148,7 +152,7 @@
 
     return NaviGroup;
 
-  })(MyApp.View.Abstract);
+  })(Timy.View.Abstract);
 
   MyApp.View.MainWindow = (function(_super) {
 
@@ -167,9 +171,9 @@
 
     return MainWindow;
 
-  })(MyApp.View.Window);
+  })(Timy.View.Window);
 
-  MyApp.View.ContainerWindow = (function(_super) {
+  Timy.View.ContainerWindow = (function(_super) {
 
     __extends(ContainerWindow, _super);
 
@@ -186,7 +190,7 @@
 
     return ContainerWindow;
 
-  })(MyApp.View.Window);
+  })(Timy.View.Window);
 
   MyApp.View.Hello = (function(_super) {
 
@@ -241,7 +245,7 @@
 
     return Hello;
 
-  })(MyApp.View.Abstract);
+  })(Timy.View.Abstract);
 
   MyApp.App = (function() {
 
@@ -250,8 +254,8 @@
     App.prototype.run = function() {
       var contView, mainView, naviView;
       mainView = new MyApp.View.MainWindow();
-      naviView = mainView.wrapper(new MyApp.View.NaviGroup());
-      contView = naviView.wrapper(new MyApp.View.ContainerWindow({
+      naviView = mainView.wrapper(new Timy.View.NaviGroup());
+      contView = naviView.wrapper(new Timy.View.ContainerWindow({
         title: 'Test',
         backgroundColor: '#1798cc'
       }));
