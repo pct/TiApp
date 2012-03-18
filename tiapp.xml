@@ -37,7 +37,4 @@
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android"/>
     <modules/>
-    <plugins>
-        <plugin version="1.0">ti_coffee_plugin</plugin>
-    </plugins>
 </ti:app>
