@@ -35,6 +35,9 @@ class Timy.View.Abstract extends Backbone.View
   add: (name, el) ->
     @elements[name] = el
 
+  get: (name) ->
+    @elements[name] if _.has(@elements, name)
+
   destroy: ->
     delete @view
 
@@ -124,8 +127,7 @@ class MyApp.View.Hello extends Timy.View.Abstract
     @add 'label2', label2
 
   changeColor: ->
-    info @elements['label2']
-    @elements['label2'].color = '#fff'
+    @get('label2').color = '#fff'
 
 class MyApp.App
   run: ->

@@ -52,6 +52,10 @@
       return this.elements[name] = el;
     };
 
+    Abstract.prototype.get = function(name) {
+      if (_.has(this.elements, name)) return this.elements[name];
+    };
+
     Abstract.prototype.destroy = function() {
       return delete this.view;
     };
@@ -239,8 +243,7 @@
     };
 
     Hello.prototype.changeColor = function() {
-      info(this.elements['label2']);
-      return this.elements['label2'].color = '#fff';
+      return this.get('label2').color = '#fff';
     };
 
     return Hello;
