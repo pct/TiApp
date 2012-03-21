@@ -23,7 +23,7 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>fd580982-8253-4abe-bb62-809d175f6eb2</guid>
+    <guid>__GUID__</guid>
     <iphone>
         <orientations device="iphone">
             <orientation>Ti.UI.PORTRAIT</orientation>
