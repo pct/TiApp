@@ -8,8 +8,9 @@ Usage and Hello, world
 Steps::
 
     1. git clone git://github.com/pct/TiApp.git MyApp
-    2. cd MyApp; mkdir -p build/iphone
-    3. rake
+    2. cd MyApp
+    3. ./init.py # to generate app guid
+    4. rake
 
 
 Please modify tiapp.xml and config/config.rb for your own settings.
