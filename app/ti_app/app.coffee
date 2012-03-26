@@ -6,7 +6,7 @@ MyApp = root.MyApp =
   Model: {}
   View: {}
 
-class MyApp.View.Hello extends Tivy.View.Abstract
+class MyApp.View.Hello extends Template.View.Abstract
 
   events:
     'click button': 'changeColor'
@@ -43,9 +43,9 @@ class MyApp.View.Hello extends Tivy.View.Abstract
 
 class MyApp.App
   run: ->
-    mainView = new Tivy.View.MainWindow()
-    naviView = mainView.wrapper new Tivy.View.NaviGroup()
-    contView = naviView.wrapper new Tivy.View.ContainerWindow
+    mainView = new Template.View.MainWindow()
+    naviView = mainView.wrapper new Template.View.NaviGroup()
+    contView = naviView.wrapper new Template.View.ContainerWindow
       title: 'Test'
       backgroundColor: '#1798cc'
     contView.wrapper new MyApp.View.Hello()

@@ -1,6 +1,6 @@
 root = @
 
-Tivy = root.Tivy = {}
+Template = root.Template = {}
 
 Backbone.setDomLibrary TiQuery
 
@@ -10,9 +10,9 @@ getValue = (object, prop) ->
 
 eventSplitter = /^(\S+)\s*(.*)$/
 
-Tivy.View = ->
+Template.View = ->
 
-class Tivy.View.Abstract extends Backbone.View
+class Template.View.Abstract extends Backbone.View
 
   view: null
 
@@ -67,22 +67,22 @@ class Tivy.View.Abstract extends Backbone.View
       for event, method of events
         $(el).unbind event, method
 
-class Tivy.View.Window extends Tivy.View.Abstract
+class Template.View.Window extends Template.View.Abstract
   render: ->
     $.Window(@options)
 
-class Tivy.View.NaviGroup extends Tivy.View.Abstract
+class Template.View.NaviGroup extends Template.View.Abstract
   render: () ->
     Ti.UI.iPhone.createNavigationGroup
       window: @view.render()
 
-class Tivy.View.MainWindow extends Tivy.View.Window
+class Template.View.MainWindow extends Template.View.Window
   render: ->
     window = super()
     window.add @view.render()
     window.open()
 
-class Tivy.View.ContainerWindow extends Tivy.View.Window
+class Template.View.ContainerWindow extends Template.View.Window
   render: ->
     window = super()
     window.add @view.render()

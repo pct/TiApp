@@ -1,11 +1,11 @@
 (function() {
-  var Tivy, eventSplitter, getValue, root,
+  var Template, eventSplitter, getValue, root,
     __hasProp = Object.prototype.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; };
 
   root = this;
 
-  Tivy = root.Tivy = {};
+  Template = root.Template = {};
 
   Backbone.setDomLibrary(TiQuery);
 
@@ -20,9 +20,9 @@
 
   eventSplitter = /^(\S+)\s*(.*)$/;
 
-  Tivy.View = function() {};
+  Template.View = function() {};
 
-  Tivy.View.Abstract = (function(_super) {
+  Template.View.Abstract = (function(_super) {
 
     __extends(Abstract, _super);
 
@@ -119,7 +119,7 @@
 
   })(Backbone.View);
 
-  Tivy.View.Window = (function(_super) {
+  Template.View.Window = (function(_super) {
 
     __extends(Window, _super);
 
@@ -133,9 +133,9 @@
 
     return Window;
 
-  })(Tivy.View.Abstract);
+  })(Template.View.Abstract);
 
-  Tivy.View.NaviGroup = (function(_super) {
+  Template.View.NaviGroup = (function(_super) {
 
     __extends(NaviGroup, _super);
 
@@ -151,9 +151,9 @@
 
     return NaviGroup;
 
-  })(Tivy.View.Abstract);
+  })(Template.View.Abstract);
 
-  Tivy.View.MainWindow = (function(_super) {
+  Template.View.MainWindow = (function(_super) {
 
     __extends(MainWindow, _super);
 
@@ -170,9 +170,9 @@
 
     return MainWindow;
 
-  })(Tivy.View.Window);
+  })(Template.View.Window);
 
-  Tivy.View.ContainerWindow = (function(_super) {
+  Template.View.ContainerWindow = (function(_super) {
 
     __extends(ContainerWindow, _super);
 
@@ -189,6 +189,6 @@
 
     return ContainerWindow;
 
-  })(Tivy.View.Window);
+  })(Template.View.Window);
 
 }).call(this);

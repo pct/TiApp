@@ -60,7 +60,7 @@
 
     return Hello;
 
-  })(Tivy.View.Abstract);
+  })(Template.View.Abstract);
 
   MyApp.App = (function() {
 
@@ -68,9 +68,9 @@
 
     App.prototype.run = function() {
       var contView, mainView, naviView;
-      mainView = new Tivy.View.MainWindow();
-      naviView = mainView.wrapper(new Tivy.View.NaviGroup());
-      contView = naviView.wrapper(new Tivy.View.ContainerWindow({
+      mainView = new Template.View.MainWindow();
+      naviView = mainView.wrapper(new Template.View.NaviGroup());
+      contView = naviView.wrapper(new Template.View.ContainerWindow({
         title: 'Test',
         backgroundColor: '#1798cc'
       }));
