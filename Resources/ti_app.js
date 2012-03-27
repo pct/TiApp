@@ -12,19 +12,39 @@
     View: {}
   };
 
-  MyApp.View.Hello = (function(_super) {
+  MyApp.App = (function() {
 
-    __extends(Hello, _super);
+    function App() {}
 
-    function Hello() {
-      Hello.__super__.constructor.apply(this, arguments);
+    App.prototype.run = function() {
+      var contView, mainView, naviView;
+      mainView = new Template.View.MainWindow();
+      naviView = mainView.wrapper(new Template.View.NaviGroup());
+      contView = naviView.wrapper(new Template.View.ContainerWindow({
+        title: 'Test',
+        backgroundColor: '#1798cc'
+      }));
+      contView.wrapper(new MyApp.View.Main());
+      return mainView.render();
+    };
+
+    return App;
+
+  })();
+
+  MyApp.View.Main = (function(_super) {
+
+    __extends(Main, _super);
+
+    function Main() {
+      Main.__super__.constructor.apply(this, arguments);
     }
 
-    Hello.prototype.events = {
+    Main.prototype.events = {
       'click button': 'changeColor'
     };
 
-    Hello.prototype.initialize = function() {
+    Main.prototype.initialize = function() {
       this.add('label1', $.Label({
         text: 'Hello, world!',
         top: 100,
@@ -54,33 +74,13 @@
       }));
     };
 
-    Hello.prototype.changeColor = function() {
+    Main.prototype.changeColor = function() {
       return this.get('label2').color = '#fff';
     };
 
-    return Hello;
+    return Main;
 
   })(Template.View.Abstract);
-
-  MyApp.App = (function() {
-
-    function App() {}
-
-    App.prototype.run = function() {
-      var contView, mainView, naviView;
-      mainView = new Template.View.MainWindow();
-      naviView = mainView.wrapper(new Template.View.NaviGroup());
-      contView = naviView.wrapper(new Template.View.ContainerWindow({
-        title: 'Test',
-        backgroundColor: '#1798cc'
-      }));
-      contView.wrapper(new MyApp.View.Hello());
-      return mainView.render();
-    };
-
-    return App;
-
-  })();
 
   MyApp.app = new MyApp.App();
 

@@ -109,9 +109,9 @@ end
 
 def compile_coffee
   puts "Compiling CoffeeScript".blue
-  paths = `find app/ti_app -name '*.coffee'`.split("\n")
+  paths = `find app/ti_app -name '*.coffee'|grep -v run.coffee`.split("\n")
   compilation = (
-  system "coffee -p --join --bare #{paths.join(' ')} > Resources/ti_app.js" and
+  system "coffee -p --join --bare #{paths.join(' ')} app/ti_app/run.coffee > Resources/ti_app.js" and
   system "coffee -p --bare app/app.coffee > Resources/app.js"
   )
 
