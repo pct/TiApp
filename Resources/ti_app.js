@@ -1,25 +1,24 @@
 (function() {
-  var MyApp, Template, root,
+  var Template, Tiapp, root,
     __hasProp = Object.prototype.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; };
 
   root = this;
 
-  MyApp = root.MyApp = {
-    app: null,
+  Tiapp = root.Tiapp = {
     App: {},
     Model: {},
     View: {},
     Window: {}
   };
 
-  MyApp.App = (function() {
+  Tiapp.App = (function() {
 
     function App() {}
 
     App.prototype.run = function() {
       var main;
-      main = new MyApp.Window.Main().render();
+      main = new Tiapp.Window.Main().render();
       return main.open();
     };
 
@@ -45,7 +44,7 @@
 
   })(Backbone.View);
 
-  MyApp.Window.Main = (function(_super) {
+  Tiapp.Window.Main = (function(_super) {
 
     __extends(Main, _super);
 
@@ -76,13 +75,17 @@
         textAlign: 'center'
       });
       this.button = $.Button({
-        title: 'click me!',
+        title: 'click to show window2',
         top: 250,
-        width: 100,
+        width: 200,
         height: 50,
         color: '#000'
       });
       return this.bind();
+    };
+
+    Main.prototype.open_second_window = function() {
+      return this.nav_group.open(new Tiapp.Window.Second().render());
     };
 
     Main.prototype.bind = function() {
@@ -99,17 +102,18 @@
       return this.main_window;
     };
 
-    Main.prototype.open_second_window = function() {
-      return this.nav_group.open(new MyApp.Window.Second().render());
+    Main.prototype.destroy = function() {
+      this.content_window.remove(this.label1);
+      this.content_window.remove(this.button);
+      this.main_window.remove(this.nav_group);
+      return this.main_window.close();
     };
-
-    Main.prototype.destroy = function() {};
 
     return Main;
 
   })(Template);
 
-  MyApp.Window.Second = (function(_super) {
+  Tiapp.Window.Second = (function(_super) {
 
     __extends(Second, _super);
 
@@ -166,12 +170,17 @@
       return this.window;
     };
 
-    Second.prototype.destroy = function() {};
+    Second.prototype.destroy = function() {
+      this.window.remove(this.label1);
+      this.window.remove(this.label2);
+      this.window.remove(this.button);
+      return this.window.close();
+    };
 
     return Second;
 
   })(Template);
 
-  new MyApp.App().run();
+  new Tiapp.App().run();
 
 }).call(this);

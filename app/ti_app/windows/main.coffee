@@ -1,4 +1,4 @@
-class MyApp.Window.Main extends Template
+class Tiapp.Window.Main extends Template
 
   initialize: ->
     @main_window = $.Window
@@ -22,14 +22,17 @@ class MyApp.Window.Main extends Template
       textAlign: 'center'
 
     @button= $.Button
-      title: 'click me!'
+      title: 'click to show window2'
       top: 250
-      width: 100
+      width: 200
       height: 50
       color: '#000'
 
 
     @bind()
+
+  open_second_window: ->
+      @nav_group.open new Tiapp.Window.Second().render()
 
   bind: ->
       $(@button).click =>
@@ -43,8 +46,11 @@ class MyApp.Window.Main extends Template
 
       @main_window
 
-  open_second_window: ->
-      @nav_group.open new MyApp.Window.Second().render()
-
   destroy: ->
 
+      @content_window.remove @label1
+      @content_window.remove @button
+
+      @main_window.remove @nav_group
+
+      @main_window.close()

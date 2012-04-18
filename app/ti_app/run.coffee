@@ -1,1 +1,1 @@
-new MyApp.App().run()
+new Tiapp.App().run()

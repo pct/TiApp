@@ -1,4 +1,4 @@
-class MyApp.Window.Second extends Template
+class Tiapp.Window.Second extends Template
 
   initialize: ->
 
@@ -46,4 +46,8 @@ class MyApp.Window.Second extends Template
       @window
 
   destroy: ->
+      @window.remove @label1
+      @window.remove @label2
+      @window.remove @button
+      @window.close()
 

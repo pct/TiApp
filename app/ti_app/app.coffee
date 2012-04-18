@@ -1,14 +1,13 @@
 root = @
 
-MyApp = root.MyApp =
-  app: null,
+Tiapp = root.Tiapp =
   App: {}
   Model: {}
   View: {}
   Window: {}
 
-class MyApp.App
+class Tiapp.App
   run: ->
-      main = new MyApp.Window.Main().render()
+      main = new Tiapp.Window.Main().render()
       main.open()
 
