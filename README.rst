@@ -1,7 +1,7 @@
 TiApp
 ======
 
-My simple iOS app template create from Ti and redux.js
+My simple iOS app template create from Ti and tiquery.js
 
 Usage and Hello, world
 -----------------------
@@ -29,9 +29,9 @@ or use Bundler::
 Notice
 ------
 
-This project use redux.js, and it needs some tricks when you build demo and distribute to your iOS device.
+This project use tiquery.js, and it needs some tricks when you build demo and distribute to your iOS device.
 
-When you use `new Window` or `new Label` or other Ti.UI modules, you must add this::
+When you use `$.Window()` or `$.Label()` or other Ti.UI modules, you must add this::
 
     # iOS trick
     Ti.UI.createWindow
