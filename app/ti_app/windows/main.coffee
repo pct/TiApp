@@ -38,6 +38,9 @@ class Tiapp.Window.Main extends Template
       $(@button).click =>
           @open_second_window()
 
+      @main_window.addEventListener 'close', (e) =>
+          @destroy()
+
   render: ->
       @content_window.add @label1
       @content_window.add @button
@@ -47,10 +50,8 @@ class Tiapp.Window.Main extends Template
       @main_window
 
   destroy: ->
-
-      @content_window.remove @label1
-      @content_window.remove @button
-
-      @main_window.remove @nav_group
+      @label1 = null
+      @button = null
+      @nav_group = null
 
       @main_window.close()

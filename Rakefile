@@ -115,6 +115,8 @@ def compile_coffee
   system "coffee -p --bare app/app.coffee > Resources/app.js"
   )
 
+  puts "coffee -p --bare #{paths.join(' ')} app/ti_app/run.coffee > Resources/ti_app.js"
+
   if compilation
     puts "Successfully compiled CoffeeScript".green
   else

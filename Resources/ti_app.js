@@ -26,6 +26,40 @@
 
   })();
 
+  Ti.UI.createActivityIndicator;
+
+  Ti.UI.createButton;
+
+  Ti.UI.createEmailDialog;
+
+  Ti.UI.createImageView;
+
+  Ti.UI.createLabel;
+
+  Ti.UI.createOptionDialog;
+
+  Ti.UI.createPicker;
+
+  Ti.UI.createProgressBar;
+
+  Ti.UI.createScrollView;
+
+  Ti.UI.createTab;
+
+  Ti.UI.createTabGroup;
+
+  Ti.UI.createTableView;
+
+  Ti.UI.createTableViewRow;
+
+  Ti.UI.createToolbar;
+
+  Ti.UI.createView;
+
+  Ti.UI.createWebView;
+
+  Ti.UI.createWindow;
+
   Backbone.setDomLibrary(TiQuery);
 
   Template = (function(_super) {
@@ -90,8 +124,11 @@
 
     Main.prototype.bind = function() {
       var _this = this;
-      return $(this.button).click(function() {
+      $(this.button).click(function() {
         return _this.open_second_window();
+      });
+      return this.main_window.addEventListener('close', function(e) {
+        return _this.destroy();
       });
     };
 
@@ -103,9 +140,9 @@
     };
 
     Main.prototype.destroy = function() {
-      this.content_window.remove(this.label1);
-      this.content_window.remove(this.button);
-      this.main_window.remove(this.nav_group);
+      this.label1 = null;
+      this.button = null;
+      this.nav_group = null;
       return this.main_window.close();
     };
 
@@ -158,8 +195,12 @@
     };
 
     Second.prototype.bind = function() {
-      return $(this.button).click(function(e) {
+      var _this = this;
+      $(this.button).click(function(e) {
         return alert('hello!');
+      });
+      return this.window.addEventListener('close', function(e) {
+        return _this.destroy();
       });
     };
 
@@ -171,9 +212,9 @@
     };
 
     Second.prototype.destroy = function() {
-      this.window.remove(this.label1);
-      this.window.remove(this.label2);
-      this.window.remove(this.button);
+      this.label1 = null;
+      this.label2 = null;
+      this.button = null;
       return this.window.close();
     };
 
