@@ -6,6 +6,7 @@ Tiapp = root.Tiapp =
   View: {}
   Window: {}
 
+
 class Tiapp.App
   run: ->
       main = new Tiapp.Window.Main().render()

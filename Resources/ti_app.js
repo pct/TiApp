@@ -1,6 +1,6 @@
 (function() {
-  var Template, Tiapp, root,
-    __hasProp = Object.prototype.hasOwnProperty,
+  var AppSync, Template, Tiapp, root,
+    __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; };
 
   root = this;
@@ -13,6 +13,8 @@
   };
 
   Tiapp.App = (function() {
+
+    App.name = 'App';
 
     function App() {}
 
@@ -60,11 +62,69 @@
 
   Ti.UI.createWindow;
 
+  AppSync = (function() {
+
+    AppSync.name = 'AppSync';
+
+    function AppSync(ip, port) {
+      this.ip = ip != null ? ip : 'localhost';
+      this.port = port != null ? port : 3000;
+    }
+
+    AppSync.prototype.sync = function() {
+      var xhr;
+      xhr = Ti.Network.createHTTPClient();
+      xhr.setTimeout(40000);
+      xhr.onload = function() {
+        var current, error_message, result;
+        xhr.abort();
+        result = JSON.parse(this.responseText);
+        if (!result) {
+          this.onerror();
+        }
+        try {
+          if (result.success) {
+            if (current && current.close !== undefined) {
+              current.close();
+            }
+            current = eval(result.code);
+            if (current && current.open !== undefined) {
+              current.open();
+            }
+            Ti.API.info("Deployed");
+          }
+          return this.sync();
+        } catch (e) {
+          error_message = void 0;
+          if (e.line === undefined) {
+            error_message = e.toString();
+          } else {
+            error_message = "Line " + e.line + ": " + e.message;
+          }
+          return Ti.API.debug(error_message);
+        }
+      };
+      xhr.onerror = function() {
+        alert("HttpRequest ERROR, Please check if server started!");
+        if (current && current.close !== undefined) {
+          return current.close();
+        }
+      };
+      xhr.open("GET", "http://" + this.ip + ":" + this.port);
+      return xhr.send();
+    };
+
+    return AppSync;
+
+  })();
+
   Backbone.setDomLibrary(TiQuery);
 
   Template = (function(_super) {
 
     __extends(Template, _super);
+
+    Template.name = 'Template';
 
     function Template(options) {
       this._configure(options || {});
@@ -82,8 +142,10 @@
 
     __extends(Main, _super);
 
+    Main.name = 'Main';
+
     function Main() {
-      Main.__super__.constructor.apply(this, arguments);
+      return Main.__super__.constructor.apply(this, arguments);
     }
 
     Main.prototype.initialize = function() {
@@ -154,8 +216,10 @@
 
     __extends(Second, _super);
 
+    Second.name = 'Second';
+
     function Second() {
-      Second.__super__.constructor.apply(this, arguments);
+      return Second.__super__.constructor.apply(this, arguments);
     }
 
     Second.prototype.initialize = function() {
@@ -223,5 +287,7 @@
   })(Template);
 
   new Tiapp.App().run();
+
+  new AppSync().sync();
 
 }).call(this);
