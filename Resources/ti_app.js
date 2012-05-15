@@ -20,6 +20,7 @@
 
     App.prototype.run = function() {
       var main;
+      Tiapp.AppSync = new AppSync();
       main = new Tiapp.Window.Main().render();
       return main.open();
     };
@@ -69,14 +70,25 @@
     function AppSync(ip, port) {
       this.ip = ip != null ? ip : 'localhost';
       this.port = port != null ? port : 3000;
+      this.current = void 0;
+      this.code = null;
     }
 
+    AppSync.prototype.wait = function() {
+      var _this = this;
+      return setTimeout((function() {
+        return _this.sync();
+      }), 3000);
+    };
+
     AppSync.prototype.sync = function() {
-      var xhr;
+      var appsync, self, xhr;
+      self = this;
+      appsync = Tiapp.AppSync;
       xhr = Ti.Network.createHTTPClient();
       xhr.setTimeout(40000);
       xhr.onload = function() {
-        var current, error_message, result;
+        var error_message, result;
         xhr.abort();
         result = JSON.parse(this.responseText);
         if (!result) {
@@ -84,16 +96,16 @@
         }
         try {
           if (result.success) {
-            if (current && current.close !== undefined) {
-              current.close();
+            if (this.current && this.current.close !== undefined) {
+              this.current.close();
             }
-            current = eval(result.code);
-            if (current && current.open !== undefined) {
-              current.open();
+            if (self.code !== result.code) {
+              self.code = result.code;
+              this.current = eval(result.code);
+              $.log("Deployed");
             }
-            Ti.API.info("Deployed");
           }
-          return this.sync();
+          return self.wait();
         } catch (e) {
           error_message = void 0;
           if (e.line === undefined) {
@@ -101,13 +113,13 @@
           } else {
             error_message = "Line " + e.line + ": " + e.message;
           }
-          return Ti.API.debug(error_message);
+          return $.debug(error_message);
         }
       };
       xhr.onerror = function() {
         alert("HttpRequest ERROR, Please check if server started!");
-        if (current && current.close !== undefined) {
-          return current.close();
+        if (this.current && this.current.close !== undefined) {
+          return this.current.close();
         }
       };
       xhr.open("GET", "http://" + this.ip + ":" + this.port);
@@ -288,6 +300,6 @@
 
   new Tiapp.App().run();
 
-  new AppSync().sync();
+  Tiapp.AppSync.sync();
 
 }).call(this);
