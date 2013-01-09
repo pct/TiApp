@@ -1,7 +1,7 @@
 (function() {
   var AppSync, Template, Tiapp, root,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   root = this;
 
@@ -13,8 +13,6 @@
   };
 
   Tiapp.App = (function() {
-
-    App.name = 'App';
 
     function App() {}
 
@@ -64,8 +62,6 @@
   Ti.UI.createWindow;
 
   AppSync = (function() {
-
-    AppSync.name = 'AppSync';
 
     function AppSync(ip, port) {
       this.ip = ip != null ? ip : 'localhost';
@@ -136,8 +132,6 @@
 
     __extends(Template, _super);
 
-    Template.name = 'Template';
-
     function Template(options) {
       this._configure(options || {});
       this.initialize.apply(this, arguments);
@@ -153,8 +147,6 @@
   Tiapp.Window.Main = (function(_super) {
 
     __extends(Main, _super);
-
-    Main.name = 'Main';
 
     function Main() {
       return Main.__super__.constructor.apply(this, arguments);
@@ -227,8 +219,6 @@
   Tiapp.Window.Second = (function(_super) {
 
     __extends(Second, _super);
-
-    Second.name = 'Second';
 
     function Second() {
       return Second.__super__.constructor.apply(this, arguments);

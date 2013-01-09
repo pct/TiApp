@@ -13,13 +13,13 @@ module Config
   PROJECT_ROOT        = FileUtils.pwd()
   PROJECT_VERSION     = "0.0.1"
 
-  IPHONE_SDK_VERSION  = "5.1"
+  IPHONE_SDK_VERSION  = "6.0"
   ANDROID_SDK_VERSION = ""
 
   # TODO: In Ti itself, we have the sdk version and the ti directory locations. We should use this configuration instead of
   #       the one within Ti itself. This will allow the user to decide if they're building on a different version or have
   #       Titanium in a different location.
-  TI_SDK_VERSION      = "1.8.0.1"
+  TI_SDK_VERSION      = "3.0.0.GA"
   TI_DIR              = "~/Library/Application\\ Support/Titanium"
 
   TI_ASSETS_DIR       = "#{TI_DIR}/mobilesdk/osx/#{TI_SDK_VERSION}"
