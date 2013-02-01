@@ -6,3 +6,4 @@ rm -rf README.rst
 rm -rf intro.rst
 rm -rf sync
 rm -rf app/ti_app/lib/appsync.coffee
+rm -rf run.rb
