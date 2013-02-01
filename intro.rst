@@ -118,7 +118,7 @@ TiApp 簡介
 
 下載 TiApp 回來後，請先執行：
 
-    $ ./init.py
+    $ ./gen_uuid.py
 
 這是為了換掉 tiapp.xml 以及 manifest 兩個檔案中的 GUID
 換好後會像這串文字：d0e681e6-8a99-471f-847e-ef94f5c583b8

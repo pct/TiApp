@@ -18,7 +18,6 @@
 
     App.prototype.run = function() {
       var main;
-      Tiapp.AppSync = new AppSync();
       main = new Tiapp.Window.Main().render();
       return main.open();
     };

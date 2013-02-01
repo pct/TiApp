@@ -8,7 +8,7 @@ Tiapp = root.Tiapp =
 
 class Tiapp.App
   run: ->
-      Tiapp.AppSync = new AppSync()
+      #Tiapp.AppSync = new AppSync()
       main = new Tiapp.Window.Main().render()
       main.open()
 
